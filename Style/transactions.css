@@ -1,0 +1,26 @@
+.main {
+  margin-left: 300px;
+  margin-right: 40px;
+}
+.trans-head {
+  width: 100%;
+  position: relative;
+  margin-top: 40px;
+  i {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #999;
+  }
+  input {
+    outline: none;
+    border-width: 1px;
+    border-color: #999;
+    padding: 20px;
+    padding-right: 885px;
+    text-align: left;
+    padding-left: 40px;
+    border-radius: 20px;
+  }
+}
