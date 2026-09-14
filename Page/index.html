@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+    <link rel="stylesheet" href="/Style/nav.css" />
+    <link rel="stylesheet" href="/Style/about.css" />
+    <title>Home Page</title>
+  </head>
+  <body>
+    <head>
+      <nav class="head">
+        <div class="head-1">
+          <i class="fa-solid fa-building-columns"></i>
+          <p>Bank Kon Khmer</p>
+        </div>
+        <div class="head-2">
+          <a href="/Page/index.html">
+            <div>
+              <i class="fa-solid fa-house"></i>
+              <p>Dashboard</p>
+            </div></a
+          >
+          <!-- transactions -->
+          <a href="/Page/transactions.html">
+            <div>
+              <i class="fa-solid fa-list"></i>
+              <p>Transactions</p>
+            </div></a
+          >
+          <!-- Add transactions -->
+          <a href="/Page/add-transaction.html"
+            ><div>
+              <i class="fa-solid fa-plus"></i>
+              <p>Add Transactions</p>
+            </div></a
+          >
+
+          <!-- Statistics -->
+          <a href="/Page/statistics.html">
+            <div>
+              <i class="fa-solid fa-chart-simple"></i>
+              <p>Statistics</p>
+            </div></a
+          >
+
+          <!-- Setting -->
+          <a href="/Page/settings.html">
+            <div>
+              <i class="fa-solid fa-gear"></i>
+              <p>Setting</p>
+            </div></a
+          >
+        </div>
+      </nav>
+    </head>
+    <!-- Page -->
+    <main class="main">
+      <section>
+        <div class="about">
+          <div class="about-1">
+            <h1>Welcome Back!</h1>
+            <p>Here is your financial overview</p>
+          </div>
+          <div class="about-2">
+            <i class="fa-solid fa-calendar-days"></i>
+            <p id="today"></p>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="services">
+          <div class="services-1">
+            <i class="fa-solid fa-money-check-dollar"></i>
+            <p>Total Balance</p>
+            <span>$100000</span>
+          </div>
+
+          <div class="services-2">
+            <i class="fa-solid fa-money-bill-trend-up"></i>
+            <p>Total Income</p>
+            <span>$100000</span>
+          </div>
+
+          <div class="services-3">
+            <i class="fa-solid fa-money-bill-transfer"></i>
+            <p>Total Expenses</p>
+            <span>$100000</span>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="features">
+          <div class="features-1">
+            <div>
+              <h3>Spending Overview</h3>
+              <img src="/Image/image.png" alt="" />
+            </div>
+            <div class="features-2">
+              <ul>
+                <li>Bills <span>35%</span></li>
+                <li>Transport <span>20%</span></li>
+                <li>Shopping<span>15%</span></li>
+                <li>Foods <span>35%</span></li>
+                <li>Others <span>15%</span></li>
+              </ul>
+            </div>
+          </div>
+          <div class="features-3">
+            <h3>Quick Actions</h3>
+            <div class="features-4">
+              <button>
+                <i class="fa-solid fa-plus"> </i>
+                <span>Deposit</span>
+              </button>
+            </div>
+            <div class="features-5">
+              <button>
+                <i class="fa-solid fa-minus"></i>
+                <span>Withdraw</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+  <script>
+    const today = new Date();
+    document.getElementById("today").textContent = today.toLocaleDateString();
+  </script>
+</html>
