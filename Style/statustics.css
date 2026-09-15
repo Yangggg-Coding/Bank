@@ -1,0 +1,98 @@
+.main {
+  margin-left: 300px;
+  margin-right: 40px;
+}
+.statis {
+  display: flex;
+  text-align: center;
+  justify-content: space-between;
+  margin-bottom: 40px;
+  .statis-1 {
+    font-size: 15;
+    font-weight: 400;
+    color: gray;
+    margin: 10px;
+    button {
+      padding: 10px;
+      border-radius: 10px;
+      border: 0px;
+      margin-left: 10px;
+      i {
+        margin-left: 10px;
+      }
+    }
+  }
+}
+.statis-2 {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  align-items: center;
+
+  div {
+    background-color: rgb(203, 201, 201);
+    border-radius: 20px;
+    padding: 20px;
+    align-items: center;
+    width: 350px;
+  }
+  .s1 {
+    i {
+      color: rgb(4, 255, 4);
+      margin-right: 10px;
+      font-size: 30px;
+    }
+    p {
+      color: rgb(4, 255, 4);
+      margin-right: 10px;
+      font-size: 30px;
+      font-weight: 600;
+    }
+    span {
+      font-size: 20px;
+      font-weight: 600;
+    }
+  }
+  .s2 {
+    i {
+      color: rgb(4, 255, 4);
+      margin-right: 10px;
+      font-size: 30px;
+    }
+    p {
+      color: rgb(4, 255, 4);
+      margin-right: 10px;
+      font-size: 30px;
+      font-weight: 600;
+    }
+    span {
+      font-size: 20px;
+      font-weight: 600;
+    }
+  }
+  .s3 {
+    i {
+      color: rgb(255, 4, 4);
+      margin-right: 10px;
+      font-size: 30px;
+    }
+    p {
+      color: rgb(255, 0, 0);
+      margin-right: 10px;
+      font-size: 30px;
+      font-weight: 600;
+    }
+    span {
+      font-size: 20px;
+      font-weight: 600;
+    }
+  }
+}
+.stastis-3 {
+  display: flex;
+  margin-top: 40px;
+  img {
+    width: 550px;
+    margin-right: 20px;
+  }
+}
