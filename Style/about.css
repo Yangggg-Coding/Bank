@@ -106,9 +106,7 @@
       padding: 6px 0;
       border-bottom: 1px solid #eee;
     }
-    li::marker {
-      color: #1d9e75;
-    }
+
     li span {
       font-weight: 500;
       color: #1d9e75;
