@@ -7,7 +7,9 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
     />
-        <link rel="icon" type="png" href="/Image/Logo.png" /><link rel="stylesheet" href="/Style/nav.css" />
+    <link rel="icon" type="png" href="/Image/Logo.png" />
+    <link rel="stylesheet" href="/Style/nav.css" />
+    <link rel="stylesheet" href="/Style/setting.css" />
     <title>Setting</title>
   </head>
   <body>
@@ -58,7 +60,76 @@
       </nav>
     </head>
 
-    <section></section>
+    <main class="main">
+      <section>
+        <div>
+          <h1>Setting</h1>
+        </div>
+        <div>
+          <div>
+            <h3>General</h3>
+          </div>
+
+          <div class="setting">
+            <div class="setting-1">
+              <p>Currency</p>
+              <select>
+                <option value="">
+                  USD ($) <i class="fa-solid fa-angle-down"></i>
+                </option>
+              </select>
+            </div>
+            <div>
+              <p>Theme</p>
+              <div>
+                <label>
+                  <input type="radio" name="theme" value="light" checked />
+                  Light
+                </label>
+                <label>
+                  <input type="radio" name="theme" value="dark" />
+                  Dark
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div>
+          <h3>Data</h3>
+        </div>
+
+        <div>
+          <i class="fa-regular fa-rectangle-xmark"></i>
+          <div>
+            <p>Clear All Data</p>
+            <p>Delete all transactions all reset the app.</p>
+          </div>
+          <div>
+            <button>Clear</button>
+          </div>
+        </div>
+
+        <div>
+          <i class="fa-solid fa-file-export"></i>
+          <div>
+            <p>Export Data</p>
+            <p>Download your data as a JSON file.</p>
+          </div>
+          <div>Export</div>
+        </div>
+      </section>
+
+      <section>
+        <h3>About</h3>
+        <div>
+          <p>Version</p>
+          <span>67</span>
+        </div>
+      </section>
+    </main>
   </body>
   <script></script>
 </html>
