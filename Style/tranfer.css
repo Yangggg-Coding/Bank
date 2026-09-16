@@ -50,3 +50,43 @@
   font-size: 20px;
   cursor: pointer;
 }
+
+@media (max-width: 1200px) {
+  .main {
+    margin-left: 280px;
+    margin-right: 20px;
+  }
+
+  .add-features-2 input,
+  .add-fea button {
+    width: 100%;
+  }
+}
+
+@media (max-width: 760px) {
+  .main {
+    margin: 0 18px;
+    padding: 28px 0 40px;
+  }
+
+  .add-features {
+    margin-bottom: 28px;
+  }
+
+  .add-features-1 {
+    margin-bottom: 28px;
+  }
+
+  .add-features-2 input,
+  .add-fea button {
+    width: 100%;
+  }
+
+  .add-features-2 input {
+    padding: 15px;
+  }
+
+  .add-fea button {
+    padding: 15px;
+  }
+}

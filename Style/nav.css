@@ -59,3 +59,42 @@ body {
     color: #102126;
   }
 }
+
+@media (max-width: 760px) {
+  .head {
+    position: static;
+    width: 100%;
+    height: auto;
+    min-height: 0;
+    padding: 14px 12px;
+  }
+
+  .head .head-1 {
+    justify-content: center;
+    margin-bottom: 12px;
+  }
+
+  .head .head-2 {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 4px;
+  }
+
+  .head .head-2 a {
+    margin-bottom: 0;
+  }
+
+  .head .head-2 div {
+    min-height: 58px;
+    padding: 6px 3px;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    line-height: 1.2;
+    font-size: 11px;
+  }
+
+  .head .head-2 div i {
+    margin: 0 0 4px;
+  }
+}
