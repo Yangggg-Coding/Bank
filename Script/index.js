@@ -1,18 +1,30 @@
 import { Transactions } from "../Data/transactions.js";
-import { totalExpenses } from "../Data/transactions.js";
-import { totalIncome } from "../Data/transactions.js";
-export function date() {
-  const today = new Date();
-  document.getElementById("today").textContent = today.toLocaleDateString();
-}
-date();
 
 const balance = document.querySelector(".js-balance");
 const income = document.querySelector(".js-income");
 const expenses = document.querySelector(".js-expenses");
 
-let totalBalance = totalIncome - totalExpenses;
+export let totalIncome = Transactions.reduce((total, transactions) => {
+  if (transactions.type === "Income") {
+    return total + transactions.amount;
+  }
+  return total;
+}, 0);
+export let totalExpenses = Transactions.reduce((total, transactions) => {
+  if (transactions.type === "Expenses") {
+    return total + transactions.amount;
+  }
+  return total;
+}, 0);
 
-income.textContent = `$${totalIncome.toFixed(2)}`;
-expenses.textContent = `$${totalExpenses.toFixed(2)}`;
-balance.textContent = `$${totalBalance.toFixed(2)}`;
+export let totalBalance = totalIncome - totalExpenses;
+
+if (balance) {
+  balance.textContent = `$${totalBalance.toFixed(2)}`;
+}
+if (income) {
+  income.textContent = `$${totalIncome.toFixed(2)}`;
+}
+if (expenses) {
+  expenses.textContent = `$${totalExpenses.toFixed(2)}`;
+}

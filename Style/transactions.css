@@ -2,6 +2,7 @@
   margin-left: 300px;
   margin-right: 40px;
 }
+
 .trans-head {
   width: 100%;
   position: relative;
@@ -38,7 +39,12 @@
   h3 {
     margin: 20px 0px;
   }
-
+  .trans-about-1 {
+    select {
+      width: 300px;
+      outline: none;
+    }
+  }
   .trans-about-2 {
     display: flex;
     justify-content: space-between;

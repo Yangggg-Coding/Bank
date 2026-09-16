@@ -56,21 +56,9 @@ export const Transactions = [
     date: "9 sep 2026",
   },
 ];
-export let totalIncome = Transactions.reduce((total, transactions) => {
-  if (transactions.type === "Income") {
-    return total + transactions.amount;
-  }
-  return total;
-}, 0);
-export let totalExpenses = Transactions.reduce((total, transactions) => {
-  if (transactions.type === "Expenses") {
-    return total + transactions.amount;
-  }
-  return total;
-}, 0);
-let balance = totalIncome - totalExpenses;
 
 const tran = document.querySelector(".js-transaction");
+
 //check before update
 if (tran) {
   Transactions.forEach((transactions) => {
