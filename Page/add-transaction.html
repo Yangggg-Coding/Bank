@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="/Script/theme.js"></script>
     <link rel="icon" type="png" href="/Image/Logo.png" />
     <link
       rel="stylesheet"
@@ -74,17 +75,24 @@
         <div>
           <div class="add-features-2">
             <p>Recipient Account</p>
-            <input type=" text" placeholder="Accoung number or Username" />
+            <input
+              type=" text"
+              placeholder="Account number or Username"
+              class="js-accNumUser"
+            />
             <p>Amount</p>
-            <input type="text" placeholder="$ 0.00" />
+            <input class="js-amount" type="text" placeholder="$0.00" />
             <p>Note (Optional)</p>
-            <input type="text" placeholder="What's this for?" />
+            <input
+              class="js-description"
+              type="text"
+              placeholder="What's this for?"
+            />
           </div>
-          <button>Send Money</button>
+          <button class="js-sendBtt">Send Money</button>
         </div>
       </section>
     </main>
-    <section></section>
   </body>
   <script type="module" src="/Script/transfer.js"></script>
 </html>
