@@ -125,6 +125,7 @@
   border-color: #ededed;
   line-height: 50px;
   margin-left: 17px;
+
   h3 {
     margin-bottom: 20px;
   }
@@ -141,6 +142,11 @@
       margin-left: 10px;
     }
   }
+  .features-4 a,
+  .features-5 a {
+    text-decoration: none;
+  }
+
   .features-5 button {
     display: flex;
     margin-top: 20px;
