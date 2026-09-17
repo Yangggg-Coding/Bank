@@ -14,3 +14,8 @@ radio.forEach((radios) => {
     localStorage.setItem("theme", radios.value);
   });
 });
+
+const clearData = document.querySelector(".js-clear");
+clearData.addEventListener("click", () => {
+  localStorage.clear();
+});

@@ -1,18 +1,23 @@
 import { subtractFromBalance, totalBalance } from "../Script/index.js";
 import { Transactions } from "../Data/transactions.js";
+
 const tranferToElement = document.querySelector(".js-accNumUser");
 let amountElement = document.querySelector(".js-amount");
 const descriptionElement = document.querySelector(".js-description");
 const sendElement = document.querySelector(".js-sendBtt");
 
-document.querySelector(".js-balance").textContent =
-  `$${totalBalance.toFixed(2)}`;
-  
 //generate id 
-function getNextId(list) {
+export function getNextId(list) {
   if (list.length === 0) return 1;
   return Math.max(...list.map((t) => t.id)) + 1;
 }
+
+if (!sendElement) {
+  // This module is also imported for its shared getNextId helper.
+} else {
+  document.querySelector(".js-balance").textContent =
+    `$${totalBalance.toFixed(2)}`;
+
 sendElement.addEventListener("click", () => {
   let tranferTo = String(tranferToElement.value);
   let amount = Number(amountElement.value);
@@ -42,3 +47,4 @@ sendElement.addEventListener("click", () => {
   Transactions.push(newTransaction);
   localStorage.setItem("Transactions", JSON.stringify(Transactions));
 });
+}

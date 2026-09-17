@@ -18,7 +18,7 @@ export let totalExpenses = Transactions.reduce((total, transactions) => {
 }, 0);
 
 export let totalBalance = totalIncome - totalExpenses;
-
+//tranfer
 export function subtractFromBalance(amount) {
   if (!Number.isFinite(amount) || amount <= 0 || amount > totalBalance) {
     return false;
@@ -36,7 +36,25 @@ export function subtractFromBalance(amount) {
 
   return true;
 }
+//deposit
+export function deposit(amount) {
+  const depositAmount = Number(amount);
 
+  if (!Number.isFinite(depositAmount) || depositAmount <= 0) {
+    return false;
+  }
+  totalBalance += depositAmount;
+  totalIncome += depositAmount;
+
+  if (balance) {
+    balance.textContent = `$${totalBalance.toFixed(2)}`;
+  }
+  if (income) {
+    income.textContent = `$${totalIncome.toFixed(2)}`;
+  }
+
+  return true;
+}
 if (balance) {
   balance.textContent = `$${totalBalance.toFixed(2)}`;
 }

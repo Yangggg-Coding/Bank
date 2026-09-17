@@ -1,13 +1,5 @@
-export let Transactions = JSON.parse(localStorage.getItem("Transactions")) || [
-  {
-    id: 1,
-    description: "Salary",
-    amount: 500,
-    type: "Income",
-    category: "Salary",
-    date: "9 sep 2026",
-  },
-];
+export let Transactions =
+  JSON.parse(localStorage.getItem("Transactions")) || [];
 
 const tran = document.querySelector(".js-transaction");
 

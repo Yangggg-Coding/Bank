@@ -10,7 +10,7 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
     />
     <link rel="stylesheet" href="/Style/nav.css" />
-    <link rel="stylesheet" href="/Style/about.css" />
+    <link rel="stylesheet" href="/Style/tranfer.css" />
     <title>Bank | Deposit</title>
   </head>
   <body>
@@ -67,5 +67,38 @@
       </nav>
     </head>
     <!-- Page -->
+    <main class="main">
+      <section class="add-fea">
+        <div class="add-features">
+          <h1>Transfer Money</h1>
+          <h4>Send money to another account.</h4>
+        </div>
+
+        <div class="add-features-1">
+          <p>Available Balance</p>
+          <span class="js-balance">$0.00</span>
+        </div>
+        <div>
+          <div class="add-features-2">
+            <p>Recipient Account</p>
+            <input
+              type=" text"
+              placeholder="Account number or Username"
+              class="js-accNumUser"
+            />
+            <p>Amount</p>
+            <input class="js-amount" type="text" placeholder="$0.00" />
+            <p>Note (Optional)</p>
+            <input
+              class="js-description"
+              type="text"
+              placeholder="What's this for?"
+            />
+          </div>
+          <button class="js-deposit">Deposit</button>
+        </div>
+      </section>
+    </main>
   </body>
+  <script type="module" src="/Script/deposit.js"></script>
 </html>
