@@ -1,138 +1,165 @@
+:root {
+  --bg: #f4f7fb;
+  --bg-strong: #edf3f8;
+  --panel: #ffffff;
+  --panel-soft: #f8fafc;
+  --panel-alt: #edf7f5;
+  --line: #dfe8ef;
+  --text: #17212b;
+  --muted: #5d6d79;
+  --accent: #0c7a7f;
+  --accent-strong: #065d62;
+  --success: #1fa66d;
+  --danger: #dc5757;
+  --nav-bg: #0f172a;
+  --nav-bg-soft: #111827;
+  --nav-text: #edf2ff;
+  --nav-muted: #b9c4d4;
+  --nav-active: #ffffff;
+  --nav-active-text: #111827;
+  --shadow: 0 18px 38px rgba(15, 23, 42, 0.08);
+}
+
+html[data-theme="dark"] {
+  --bg: #0b1220;
+  --bg-strong: #111b2b;
+  --panel: #111c2a;
+  --panel-soft: #162434;
+  --panel-alt: #18323a;
+  --line: #2a3c4e;
+  --text: #eef6ff;
+  --muted: #a7b5c7;
+  --accent: #59d2c5;
+  --accent-strong: #7ce9dd;
+  --success: #4ade80;
+  --danger: #f87171;
+  --nav-bg: #070d18;
+  --nav-bg-soft: #0f172a;
+  --nav-text: #eaf4ff;
+  --nav-muted: #b5c2d5;
+  --nav-active: rgba(255, 255, 255, 0.12);
+  --nav-active-text: #f7fbff;
+  --shadow: 0 18px 38px rgba(2, 6, 23, 0.45);
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
+
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  font-family: system-ui, sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
   line-height: 1.5;
-  color: #1a1a1a;
-  background-color: #ffffff;
+  color: var(--text);
+  background: linear-gradient(180deg, var(--bg) 0%, var(--bg-strong) 100%);
   overflow-x: hidden;
+  transition:
+    background 0.25s ease,
+    color 0.25s ease;
 }
 
-html[data-theme="dark"] {
-  --theme-background: #111827;
-  --theme-surface: #1f2937;
-  --theme-border: #374151;
-  --theme-text: #f3f4f6;
-  --theme-muted: #9ca3af;
+img {
+  max-width: 100%;
+  display: block;
 }
 
-html[data-theme="dark"] body {
-  background-color: var(--theme-background);
-  color: var(--theme-text);
+a {
+  text-decoration: none;
 }
 
-html[data-theme="dark"] .main h1,
-html[data-theme="dark"] .main h3,
-html[data-theme="dark"] .main p,
-html[data-theme="dark"] .main span {
-  color: var(--theme-text);
+input,
+select,
+button {
+  font: inherit;
 }
 
-html[data-theme="dark"] input,
-html[data-theme="dark"] select,
-html[data-theme="dark"] .trans-about-2,
-html[data-theme="dark"] .dropdown-menu {
-  background-color: var(--theme-surface);
-  border-color: var(--theme-border);
-  color: var(--theme-text);
-}
-
-html[data-theme="dark"] .services-1,
-html[data-theme="dark"] .services-2,
-html[data-theme="dark"] .services-3,
-html[data-theme="dark"] .features-1,
-html[data-theme="dark"] .features-3,
-html[data-theme="dark"] .setting > div,
-html[data-theme="dark"] .main section:nth-child(3) > div {
-  background-color: var(--theme-surface);
-  border-color: var(--theme-border);
-}
-
-html[data-theme="dark"] .add-features-1,
-html[data-theme="dark"] .statis-2 div {
-  background-color: #263548;
-}
-
-html[data-theme="dark"] .setting-1,
-html[data-theme="dark"] .dropdown-menu li:hover {
-  background-color: #263548;
-}
-
-html[data-theme="dark"] .trans-about-2,
-html[data-theme="dark"] .services-1 span,
-html[data-theme="dark"] .services-2 span {
-  background-color: #374151;
-}
-
-html[data-theme="dark"] .add-features h4,
-html[data-theme="dark"] .add-features-2 p,
-html[data-theme="dark"] .setting label,
-html[data-theme="dark"] .main section:nth-child(2) p + p,
-html[data-theme="dark"] .about-1 p,
-html[data-theme="dark"] .about-2,
-html[data-theme="dark"] .service-3 p {
-  color: var(--theme-muted);
-}
 .head {
-  width: 250px;
-  padding: 20px;
-  background-color: #1a1a1a;
+  width: 260px;
+  padding: 20px 16px;
+  background: linear-gradient(
+    180deg,
+    var(--nav-bg) 0%,
+    var(--nav-bg-soft) 100%
+  );
   min-height: 100vh;
   position: fixed;
   top: 0;
   left: 0;
-  width: 260px;
-  height: 100vh;
   z-index: 100;
+  box-shadow: 16px 0 32px rgba(15, 23, 42, 0.12);
+}
 
-  .head-1 {
-    margin-bottom: 20px;
-    display: flex;
-    color: white;
-    align-items: center;
-  }
-  .head-2 a {
-    display: block;
-    margin-bottom: 8px;
-    text-decoration: none;
-  }
-  .head-2 a:last-child {
-    margin-bottom: 0;
-  }
-  .head-1 i {
-    margin-right: 15px;
-  }
+.head-1 {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 28px;
+  color: var(--nav-text);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
 
-  .head-2 div {
-    display: flex;
-    color: white;
-    align-items: center;
-    line-height: 40px;
-    padding: 8px;
-    border-radius: 5px;
-    transition: all 0.5s ease;
-    font-size: 15px;
-  }
-  .head-2 div i {
-    margin-right: 15px;
-  }
-  .head-2 div:hover,
-  .head-2 a.active div {
-    background-color: rgb(255, 255, 255);
-    color: #102126;
-  }
+.head-1 i {
+  font-size: 20px;
+  color: var(--accent);
+}
+
+.head-2 {
+  display: grid;
+  gap: 8px;
+}
+
+.head-2 a {
+  display: block;
+  text-decoration: none;
+}
+
+.head-2 div {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 12px 12px;
+  border-radius: 12px;
+  color: var(--nav-text);
+  transition: all 0.25s ease;
+  font-size: 15px;
+  border: 1px solid transparent;
+}
+
+.head-2 div i {
+  width: 18px;
+  text-align: center;
+  opacity: 0.9;
+}
+
+.head-2 div:hover,
+.head-2 a.active div {
+  background: var(--nav-active);
+  color: var(--nav-active-text);
+  border-color: rgba(255, 255, 255, 0.08);
+  transform: translateX(2px);
 }
 
 @media (max-width: 760px) {
   .head {
-    position: static;
+    position: sticky;
+    top: 0;
     width: 100%;
-    height: auto;
-    min-height: 0;
-    padding: 14px 12px;
+    min-height: auto;
+    padding: 14px 12px 10px;
+    border-bottom: 1px solid var(--line);
+    box-shadow: none;
   }
 
   .head .head-1 {
@@ -141,9 +168,8 @@ html[data-theme="dark"] .service-3 p {
   }
 
   .head .head-2 {
-    display: grid;
     grid-template-columns: repeat(5, minmax(0, 1fr));
-    gap: 4px;
+    gap: 6px;
   }
 
   .head .head-2 a {
@@ -152,15 +178,17 @@ html[data-theme="dark"] .service-3 p {
 
   .head .head-2 div {
     min-height: 58px;
-    padding: 6px 3px;
+    padding: 8px 4px;
     flex-direction: column;
     justify-content: center;
     text-align: center;
     line-height: 1.2;
     font-size: 11px;
+    gap: 4px;
   }
 
   .head .head-2 div i {
-    margin: 0 0 4px;
+    margin: 0;
+    font-size: 15px;
   }
 }

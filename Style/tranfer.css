@@ -2,64 +2,86 @@
   margin-left: 300px;
   margin-right: 40px;
 }
+
 .add-features {
   margin-bottom: 50px;
-  h4 {
-    color: gray;
-    font-size: 15px;
-  }
 }
+
+.add-features h4 {
+  color: var(--muted);
+  font-size: 15px;
+  font-weight: 500;
+}
+
 .add-features-1 {
-  background-color: #f0e9d6;
-  padding: 10px;
+  background-color: var(--panel-alt);
+  padding: 16px 18px;
   border-radius: 15px;
   margin-bottom: 50px;
-  p {
-    font-size: 15px;
-  }
-  span {
-    font-size: 30px;
-    font-weight: 700;
-  }
 }
+
+.add-features-1 p {
+  font-size: 15px;
+  color: var(--muted);
+}
+
+.add-features-1 span {
+  font-size: 30px;
+  font-weight: 700;
+  color: var(--text);
+}
+
 .add-features-2 {
-  line-height: 30px;
+  line-height: 1.6;
   margin-bottom: 20px;
-
-  p {
-    font-size: 15px;
-    color: gray;
-  }
-
-  input {
-    width: 1100px;
-    border: 1px solid gray;
-    outline: none;
-    text-align: left;
-    padding: 20px;
-    border-radius: 10px;
-  }
 }
-.add-fea button {
-  width: 1100px;
-  border: 1px solid gray;
-  padding: 20px;
+
+.add-features-2 p {
+  font-size: 15px;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+
+.add-features-2 input {
+  width: 100%;
+  max-width: 1100px;
+  border: 1px solid var(--line);
+  outline: none;
+  text-align: left;
+  padding: 16px 20px;
   border-radius: 10px;
-  background-color: black;
+  background: var(--panel);
+  color: var(--text);
+  font: inherit;
+  transition: border-color 0.2s ease;
+}
+
+.add-features-2 input:focus {
+  border-color: var(--accent);
+}
+
+.add-fea button {
+  width: 100%;
+  max-width: 1100px;
+  border: 0;
+  padding: 18px 20px;
+  border-radius: 10px;
+  background-color: var(--accent);
   color: white;
-  font-size: 20px;
+  font-size: 17px;
+  font-weight: 700;
   cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.add-fea button:hover {
+  background-color: var(--accent-strong);
 }
 
 @media (max-width: 1200px) {
   .main {
     margin-left: 280px;
     margin-right: 20px;
-  }
-
-  .add-features-2 input,
-  .add-fea button {
-    width: 100%;
   }
 }
 
@@ -77,13 +99,8 @@
     margin-bottom: 28px;
   }
 
-  .add-features-2 input,
-  .add-fea button {
-    width: 100%;
-  }
-
   .add-features-2 input {
-    padding: 15px;
+    padding: 14px 16px;
   }
 
   .add-fea button {

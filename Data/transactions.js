@@ -8,9 +8,71 @@ const typeFilter = document.getElementById("type-filter");
 const categoryFilter = document.getElementById("category-filter");
 const dateSort = document.getElementById("date-sort");
 
-function renderTransactions(list) {
+function parseTransactionDate(value) {
+  if (!value) return 0;
+
+  const directDate = new Date(value);
+  if (!Number.isNaN(directDate.getTime())) {
+    return directDate.getTime();
+  }
+
+  const monthMap = {
+    jan: 0,
+    feb: 1,
+    mar: 2,
+    apr: 3,
+    may: 4,
+    jun: 5,
+    jul: 6,
+    aug: 7,
+    sep: 8,
+    oct: 9,
+    nov: 10,
+    dec: 11,
+  };
+
+  const match = String(value)
+    .trim()
+    .match(/^(\d{1,2})\s+([A-Za-z]{3})\s+(\d{4})$/);
+
+  if (!match) return 0;
+
+  const [, day, monthName, year] = match;
+  const monthIndex = monthMap[monthName.toLowerCase()];
+
+  if (monthIndex === undefined) return 0;
+
+  const parsedDate = new Date(Number(year), monthIndex, Number(day));
+  return Number.isNaN(parsedDate.getTime()) ? 0 : parsedDate.getTime();
+}
+
+function sortTransactions(list, mode = "newest") {
+  const sorted = [...list];
+
+  if (mode === "newest") {
+    sorted.sort(
+      (a, b) => parseTransactionDate(b.date) - parseTransactionDate(a.date),
+    );
+  } else if (mode === "oldest") {
+    sorted.sort(
+      (a, b) => parseTransactionDate(a.date) - parseTransactionDate(b.date),
+    );
+  } else if (mode === "highest") {
+    sorted.sort((a, b) => Number(b.amount) - Number(a.amount));
+  } else if (mode === "lowest") {
+    sorted.sort((a, b) => Number(a.amount) - Number(b.amount));
+  }
+
+  return sorted;
+}
+
+function renderTransactions(list, mode = "newest") {
+  if (!tran) return;
+
   tran.innerHTML = "";
-  list.forEach((transactions) => {
+  const sortedList = sortTransactions(list, mode);
+
+  sortedList.forEach((transactions) => {
     if (transactions.type === "Expenses") {
       tran.innerHTML += `<div class="services-2">
             <p>${transactions.date}</p>
@@ -34,47 +96,52 @@ function renderTransactions(list) {
 }
 
 if (tran) {
-  renderTransactions(Transactions);
+  if (dateSort) {
+    dateSort.value = "newest";
+  }
+  renderTransactions(Transactions, "newest");
 }
 
 if (typeFilter) {
   typeFilter.addEventListener("change", () => {
     const value = typeFilter.value;
-    if (value === "all") {
-      renderTransactions(Transactions);
-    } else {
-      const filtered = Transactions.filter((t) => t.type === value);
-      renderTransactions(filtered);
-    }
+    const baseList =
+      value === "all"
+        ? Transactions
+        : Transactions.filter((t) => t.type === value);
+    const currentMode = dateSort ? dateSort.value : "newest";
+    renderTransactions(baseList, currentMode);
   });
 }
 
 if (categoryFilter) {
   categoryFilter.addEventListener("change", () => {
     const type = categoryFilter.value;
-    if (type === "all") {
-      renderTransactions(Transactions);
-    } else {
-      const filtered = Transactions.filter((t) => t.category === type);
-      renderTransactions(filtered);
-    }
+    const baseList =
+      type === "all"
+        ? Transactions
+        : Transactions.filter((t) => t.category === type);
+    const currentMode = dateSort ? dateSort.value : "newest";
+    renderTransactions(baseList, currentMode);
   });
 }
 
 if (dateSort) {
   dateSort.addEventListener("change", () => {
-    let value = dateSort.value;
-    const sorted = [...Transactions];// copy from transactions 
+    const value = dateSort.value;
+    const currentType = typeFilter ? typeFilter.value : "all";
+    const currentCategory = categoryFilter ? categoryFilter.value : "all";
 
-    if (value === "newest") {
-      sorted.sort((a, b) => new Date(b.date) - new Date(a.date));
-    } else if (value === "oldest") {
-      sorted.sort((a, b) => new Date(a.date) - new Date(b.date));
-    } else if (value === "highest") {
-      sorted.sort((a, b) => b.amount - a.amount);
-    } else if (value === "lowest") {
-      sorted.sort((a, b) => a.amount - b.amount);
+    let filtered = Transactions;
+
+    if (currentType !== "all") {
+      filtered = filtered.filter((t) => t.type === currentType);
     }
-    renderTransactions(sorted);
+
+    if (currentCategory !== "all") {
+      filtered = filtered.filter((t) => t.category === currentCategory);
+    }
+
+    renderTransactions(filtered, value);
   });
 }
